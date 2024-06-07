@@ -1,7 +1,7 @@
 <div>
 <div style="overscroll-behavior: none;">
       <div
-        class="fixed w-full bg-green-400 h-16 pt-2 text-white flex justify-between shadow-md"
+        class="fixed w-full bg-indigo-400 h-16 pt-2 text-white flex justify-between shadow-md"
         style="top:0px; overscroll-behavior: none;"
       >
         <!-- back button -->
@@ -9,15 +9,15 @@
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
-            class="w-12 h-12 my-1 text-green-100 ml-2"
+            class="w-12 h-12 my-1 text-indigo-100 ml-2"
           >
             <path
-              class="text-green-100 fill-current"
+              class="text-white-100 fill-current"
               d="M9.41 11H17a1 1 0 0 1 0 2H9.41l2.3 2.3a1 1 0 1 1-1.42 1.4l-4-4a1 1 0 0 1 0-1.4l4-4a1 1 0 0 1 1.42 1.4L9.4 11z"
             />
           </svg>
         </a>
-        <div class="my-3 text-green-100 font-bold text-lg tracking-wide">{{ $user->name }}</div>
+        <div style="font-size: 28px;" class="my-3 text-white-100 font-bold text-lg tracking-wide">{{ $user->name }}</div>
         <!-- 3 dots -->
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +25,7 @@
           class="icon-dots-vertical w-8 h-8 mt-2 mr-2"
         >
           <path
-            class="text-green-100 fill-current"
+            class="text-white-400 fill-current"
             fill-rule="evenodd"
             d="M12 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"
           />
@@ -38,17 +38,17 @@
 
         @if($message['sender'] != auth()->user()->name)
         <div class="clearfix w-4/4">
-          <div
-            class="bg-gray-300 mx-4 my-2 p-2 rounded-lg inline-block"
-          ><b>{{ $message['sender'] }} :</b>{{ $message['message'] }}</div>
+          <div style="color: white;"
+            ><span style="color: gray; margin-left: 20px; ">{{ $message['sender'] }} :</span><p style="font-size: 18px;" class="px-6 text-white-500 bg-indigo-400 mx-4 my-2 p-2 rounded-lg inline-block">{{ $message['message'] }}</p></div>
         </div>
 
         @else
 
         <div class="clearfix">
           <div class="text-right">
-              <p 
-              class="bg-green-300 mx-4 my-2 p-2 rounded-lg inline-block">{{ $message['message'] }} <b>: Ты</b></p>
+              <p style="color: white; font-size: 18px;"
+              class="bg-indigo-500 mx-1 my-2 p-2 px-6 rounded-lg inline-block">{{ $message['message'] }} </p>
+              <span style="color: gray; margin-right: 20px;">: Ты</span>
           </div>
         </div>
 
@@ -59,17 +59,17 @@
     </div>
 
     <form wire:submit="sendMessage()">
-    <div class="fixed w-full flex justify-between bg-green-100" style="bottom: 0px;">
+    <div class="fixed w-full flex justify-between bg-indigo-50" style="bottom: 0px;">
       <textarea
-        class="flex-grow m-2 py-2 px-4 mr-1 rounded-full border border-gray-300 bg-gray-200 resize-none"
+        class="flex-grow m-2 py-2 px-4 mr-1 rounded-full border border-gray-300 bg-white-200 resize-none"
         rows="1"
         wire:model="message"
-        placeholder="Message..."
+        placeholder="Сообщение..."
         style="outline: none;"
       ></textarea>
       <button class="m-2" type="submit" style="outline: none;">
         <svg
-          class="svg-inline--fa text-green-400 fa-paper-plane fa-w-16 w-12 h-12 py-2 mr-2"
+          class="svg-inline--fa text-indigo-400 fa-paper-plane fa-w-16 w-12 h-12 py-2 mr-2"
           aria-hidden="true"
           focusable="false"
           data-prefix="fas"
